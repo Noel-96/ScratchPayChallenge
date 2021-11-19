@@ -1,0 +1,14 @@
+{
+  "name": "scratchpay",
+  "version": "1.0.0",
+  "description": "scratchpay challenge submission",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Noel Obaseki",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
