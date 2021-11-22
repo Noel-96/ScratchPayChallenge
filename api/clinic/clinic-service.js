@@ -21,15 +21,16 @@ async function searchClinic(query){
         const filteredClinics = clinics.filter(clinic => {
             let BooleanCheck = true;
             for (const key of Object.keys(query)){
+
                 switch (key) {
                     case 'name':
-                        BooleanCheck = checkMatchedName(clinic, query[key], ['name', 'clinicName'])
+                        BooleanCheck = BooleanCheck && checkMatchedName(clinic, query[key], ['name', 'clinicName'])
                     break;
                     case 'state':
-                        BooleanCheck = checkMatchedState(clinic, query[key], ['stateName', 'stateCode'])
+                        BooleanCheck = BooleanCheck &&  checkMatchedState(clinic, query[key], ['stateName', 'stateCode'])
                     break;
                     case 'isOpened':
-                        BooleanCheck =  checkIfOpened(clinic, query[key], ['availability', 'opening'])
+                        BooleanCheck = BooleanCheck &&  checkIfOpened(clinic, query[key], ['availability', 'opening'])
                     break;
                    default:
                         BooleanCheck = false
