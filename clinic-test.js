@@ -67,5 +67,38 @@ describe('Array', function () {
 
 
 
+
+  it("It should return match for the request body", (done) => {
+    let mockbody = {
+      clinicName: "Vet",
+      state: "ca",
+      availability: "15:00"
+    }
+    Chai.request(app)
+      .get("/api/searchClinics")
+      .send(mockbody)
+      .end((err, response) => {
+        response.should.have.status(200);
+        response.body.should.be.a('array');
+        response.body.length.should.be.eql(1);
+        done();
+      })
+  })
+
+  it("It should return an empty array for invalid state", (done) => {
+    let mockbody = {
+      state: "lagos",
+    }
+    Chai.request(app)
+      .get("/api/searchClinics")
+      .send(mockbody)
+      .end((err, response) => {
+        response.should.have.status(200);
+        response.body.should.be.a('array');
+        response.body.length.should.be.eql(0);
+        done();
+      })
+  })
+
 });
 
