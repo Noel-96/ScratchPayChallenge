@@ -23,13 +23,13 @@ async function searchClinic(query){
             for (const key of Object.keys(query)){
 
                 switch (key) {
-                    case 'name':
+                    case 'clinicName':
                         BooleanCheck = BooleanCheck && checkMatchedName(clinic, query[key], ['name', 'clinicName'])
                     break;
                     case 'state':
                         BooleanCheck = BooleanCheck &&  checkMatchedState(clinic, query[key], ['stateName', 'stateCode'])
                     break;
-                    case 'isOpened':
+                    case 'availability':
                         BooleanCheck = BooleanCheck &&  checkIfOpened(clinic, query[key], ['availability', 'opening'])
                     break;
                    default:
