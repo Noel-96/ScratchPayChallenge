@@ -31,6 +31,7 @@ function checkMatchedState (clinic, query,  arrayKey) {
 
 function checkIfOpened (clinic, query, arrayKey) {
     let isValid = false
+    
     for (const key of arrayKey) {
         if (clinic[key]) {
             if (query >= clinic[key].from && query < clinic[key].to){
