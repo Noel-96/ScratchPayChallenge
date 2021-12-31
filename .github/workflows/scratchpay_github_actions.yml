@@ -34,8 +34,10 @@ jobs:
         with:
          node-version: ${{ matrix.node-version }}
       # Runs a set of commands using the runners shell
+      - name: Install mocha
+        run: npm install -g mocha
       - name: Install
         run: npm install
       - name: Test
-        run: npm run test
+        run: npm run test -- clinic-test
         
